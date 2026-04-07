@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Demetre Kh. — Software Developer</title>
+  <meta name="description" content="Software Developer — building efficient, scalable, and clean software." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0f172a;
+      --bg-card: #1e293b;
+      --bg-tag: #0f172a;
+      --border: #334155;
+      --border-subtle: #1e293b;
+      --accent: #38bdf8;
+      --accent-hover: #7dd3fc;
+      --text-primary: #f1f5f9;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text-secondary);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 2rem;
+      border-bottom: 0.5px solid var(--border-subtle);
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      z-index: 100;
+    }
+    .logo {
+      font-weight: 500;
+      font-size: 15px;
+      color: var(--text-primary);
+      letter-spacing: 0.02em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 13px;
+    }
+    .nav-links a {
+      color: var(--text-secondary);
+    }
+    .nav-links a:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 3.5rem 2rem;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .hero {
+      padding-top: 5rem;
+      padding-bottom: 4rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 12px;
+      padding: 4px 10px;
+      border: 0.5px solid #1e3a5f;
+      border-radius: 20px;
+      color: var(--accent);
+      background: #0c1f36;
+      margin-bottom: 1.2rem;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+    h1 span { color: var(--accent); }
+
+    .tagline {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      max-width: 480px;
+    }
+
+    .cta { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--bg);
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: var(--accent-hover); }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text-secondary);
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 13px;
+      border: 0.5px solid var(--border);
+      cursor: pointer;
+      font-family: inherit;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--text-secondary); color: var(--text-primary); }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1.5rem;
+    }
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: 2rem;
+    }
+
+    /* ABOUT */
+    .about-text {
+      color: var(--text-secondary);
+      font-size: 14px;
+      line-height: 1.8;
+      max-width: 600px;
+    }
+    .stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 1.2rem;
+    }
+    .tag {
+      background: var(--bg-card);
+      color: var(--text-secondary);
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      border: 0.5px solid var(--border);
+    }
+
+    /* PROJECTS */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: var(--bg-card);
+      border: 0.5px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+      transition: border-color 0.2s;
+    }
+    .card:hover { border-color: var(--accent); }
+    .card-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+    .card-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+    .card-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+    .card-tech span {
+      background: var(--bg);
+      color: var(--accent);
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+    .card-link { font-size: 12px; color: var(--accent); }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 1.5rem;
+    }
+    .skill-group h4 {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+    }
+    .skill-group ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .skill-group ul li {
+      font-size: 13px;
+      color: var(--text-secondary);
+      padding-left: 12px;
+      position: relative;
+    }
+    .skill-group ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--border);
+    }
+
+    /* CONTACT */
+    .contact-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+    .contact-links a {
+      font-size: 13px;
+      color: var(--text-secondary);
+      padding: 8px 14px;
+      border: 0.5px solid var(--border);
+      border-radius: 6px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .contact-links a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    hr {
+      border: none;
+      border-top: 0.5px solid var(--border-subtle);
+      margin: 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 12px;
+      color: var(--border);
+    }
+
+    @media (max-width: 600px) {
+      nav { padding: 1rem; }
+      .nav-links { gap: 1rem; }
+      section { padding: 2.5rem 1.2rem; }
+      h1 { font-size: 1.8rem; }
+      .hero { padding-top: 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <span class="logo">demetreKh.</span>
+    <div class="nav-links">
+      <a href="#about">about</a>
+      <a href="#projects">projects</a>
+      <a href="#skills">skills</a>
+      <a href="#contact">contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="badge">open to work</div>
+    <h1>Demetre Kh.<br><span>Software Developer</span></h1>
+    <p class="tagline">Building efficient, scalable, and clean software.</p>
+    <div class="cta">
+      <button class="btn-primary" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">View Projects</button>
+      <button class="btn-secondary">Download CV</button>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <p class="section-label">About</p>
+    <p class="section-title">Who I am</p>
+    <p class="about-text">
+      I'm a software developer focused on writing clean, maintainable code. I enjoy working across the stack — from designing backend APIs to building responsive interfaces. I care about performance, simplicity, and shipping things that actually work.
+    </p>
+    <div class="stack">
+      <span class="tag">JavaScript</span>
+      <span class="tag">Python</span>
+      <span class="tag">C# .NET</span>
+      <span class="tag">Node.js</span>
+      <span class="tag">Docker</span>
+      <span class="tag">Linux</span>
+      <span class="tag">Git</span>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <p class="section-label">Projects</p>
+    <p class="section-title">Selected work</p>
+    <p class="section-sub">Things I've built and shipped.</p>
+    <div class="projects">
+      <div class="card">
+        <p class="card-title">Project Alpha</p>
+        <p class="card-desc">A REST API service for real-time data processing with rate limiting and caching.</p>
+        <div class="card-tech"><span>Node.js</span><span>Redis</span><span>Docker</span></div>
+        <a class="card-link" href="#">github →</a>
+      </div>
+      <div class="card">
+        <p class="card-title">CLI Toolkit</p>
+        <p class="card-desc">Command-line tool to automate repetitive dev tasks. Installable via pip.</p>
+        <div class="card-tech"><span>Python</span><span>Click</span></div>
+        <a class="card-link" href="#">github →</a>
+      </div>
+      <div class="card">
+        <p class="card-title">Dashboard UI</p>
+        <p class="card-desc">Lightweight analytics dashboard with live chart updates and dark mode.</p>
+        <div class="card-tech"><span>React</span><span>Tailwind</span></div>
+        <a class="card-link" href="#">github →</a>
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <p class="section-label">Skills</p>
+    <p class="section-title">Tech stack</p>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h4>Languages</h4>
+        <ul>
+          <li>JavaScript / TypeScript</li>
+          <li>Python</li>
+          <li>C# / .NET</li>
+          <li>Bash</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>Tools &amp; Infra</h4>
+        <ul>
+          <li>Docker</li>
+          <li>Git / GitHub</li>
+          <li>Linux</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>Frameworks</h4>
+        <ul>
+          <li>Node.js / Express</li>
+          <li>React</li>
+          <li>Tailwind CSS</li>
+          <li>ASP.NET Core</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <p class="section-label">Contact</p>
+    <p class="section-title">Get in touch</p>
+    <p style="font-size:14px;color:#64748b;margin-bottom:1rem">Open to freelance, contracts, or full-time roles.</p>
+    <div class="contact-links">
+      <a href="mailto:your@email.com">✉ email</a>
+      <a href="https://github.com/" target="_blank">github</a>
+      <a href="https://linkedin.com/" target="_blank">linkedin</a>
+    </div>
+  </section>
+
+  <footer>built by demetreKh · hosted on GitHub Pages</footer>
+
+</body>
+</html>
